@@ -67,7 +67,7 @@ export default class extends Command {
             image: {
                 url: img.url
             },
-            description: `How good does this image look to you?`,
+            description: `How good does this image look to you?\n\nby rating images you explicitly agree to [the LAION Terms](https://cdn.discordapp.com/attachments/1055935573371658252/1057257972834779176/2022000175_NM118.pdf)`,
             color: Colors.Blurple,
             footer: {
                 text: `ImgID ${img.id}`
