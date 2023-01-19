@@ -51,7 +51,7 @@ export default class extends Component {
             image: {
                 url: img.url
             },
-            description: `How good does this image look to you?\nby rating images you explicitly agree to [the LAION Terms](https://cdn.discordapp.com/attachments/1055935573371658252/1057257972834779176/2022000175_NM118.pdf)\nPrevious Rating: ${"⭐".repeat(Number(rate))}${"⬛".repeat(10-Number(rate))}\nKudos earned for previous rating: \`${res?.reward}\``,
+            description: `How good does this image look to you?\nPrevious Rating: ${"⭐".repeat(Number(rate))}${"⬛".repeat(10-Number(rate))}\nKudos earned for previous rating: \`${res?.reward}\``,
             color: Colors.Blurple,
             footer: {
                 text: `ImgID ${img.id}`
