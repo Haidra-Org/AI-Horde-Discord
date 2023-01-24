@@ -6,6 +6,7 @@ import { Config, StoreTypes } from "../types";
 import {existsSync, mkdirSync, writeFileSync} from "fs"
 import { Pool } from "pg";
 import crypto from "crypto"
+import Centra from "centra";
 
 export class StableHordeClient extends Client {
 	commands: Store<StoreTypes.COMMANDS>;
@@ -17,6 +18,14 @@ export class StableHordeClient extends Client {
 	timeout_users: SuperMap<string, any>
 	security_key?: Buffer
 	required_permissions: PermissionsBitField
+	bot_version: string
+	horde_styles: Record<string, {
+		prompt: string,
+		model?: string,
+		sampler_name?: string,
+		width?: number,
+		height?: number
+	}>
 
 	constructor(options: ClientOptions) {
 		super(options);
@@ -42,6 +51,10 @@ export class StableHordeClient extends Client {
 			PermissionFlagsBits.ManageRoles |
 			PermissionFlagsBits.UseExternalEmojis
 		)
+
+		this.bot_version = JSON.parse(readFileSync("./package.json", "utf-8")).version
+
+		this.horde_styles = {}
 	}
 
     loadConfig() {
@@ -60,6 +73,15 @@ export class StableHordeClient extends Client {
 		if(this.config.logs?.csv && !existsSync(`${process.cwd()}${log_dir}/logs_${new Date().getMonth()+1}-${new Date().getFullYear()}.csv`)) {
 			writeFileSync(`${process.cwd()}${log_dir}/logs_${new Date().getMonth()+1}-${new Date().getFullYear()}.csv`, `Date,User ID,Prompt ID,Image to Image,Prompt`, {flag: "a"})
 		}
+	}
+
+	async loadHordeStyles() {
+		const source = this.config.generate?.styles_source ?? `https://raw.githubusercontent.com/db0/Stable-Horde-Styles/main/styles.json`
+		const req = Centra(source, "GET")
+		const raw = await req.send()
+		if(!raw.statusCode?.toString().startsWith("2")) throw new Error("Unable to fetch styles");
+		const res = await raw.json()
+		this.horde_styles = res
 	}
 
 	async getSlashCommandTag(name: string) {

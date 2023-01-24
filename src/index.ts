@@ -49,7 +49,6 @@ if(client.config.use_database !== false) {
     }, 1000 * 60 * 60 * 24)
 }
 
-const bot_version = JSON.parse(readFileSync("./package.json", "utf-8")).version
 const stable_horde_manager = new StableHorde({
     default_token: client.config.default_token,
     cache_interval: 1000,
@@ -58,7 +57,7 @@ const stable_horde_manager = new StableHorde({
         performance: 1000 * 10,
         teams: 1000 * 10
     },
-    client_agent: `ZeldaFan-Discord-Bot:${bot_version}:https://github.com/ZeldaFan0225/Stable_Horde_Discord`
+    client_agent: `ZeldaFan-Discord-Bot:${client.bot_version}:https://github.com/ZeldaFan0225/Stable_Horde_Discord`
 })
 
 client.login(process.env["DISCORD_TOKEN"])
@@ -78,6 +77,7 @@ client.on("ready", async () => {
     client.contexts.loadClasses().catch(console.error)
     client.modals.loadClasses().catch(console.error)
     client.user?.setPresence({activities: [{type: ActivityType.Listening, name: "to your generation requests | https://stablehorde.net"}], status: PresenceUpdateStatus.DoNotDisturb, })
+    if(client.config.generate?.enabled) await client.loadHordeStyles()
     console.log(`Ready`)
     await client.application?.commands.set([...client.commands.createPostBody(), ...client.contexts.createPostBody()]).catch(console.error)
     if((client.config.advanced_generate?.user_restrictions?.amount?.max ?? 4) > 10) throw new Error("More than 10 images are not supported in the bot")
