@@ -126,7 +126,7 @@ export default class extends Command {
         }
         
         prompt = style.prompt.slice().replace("{p}", prompt)
-        prompt = prompt.replace("{np}", prompt.includes("###") ? negative_prompt : `###${negative_prompt}`)
+        prompt = prompt.replace("{np}", !negative_prompt || prompt.includes("###") ? negative_prompt : `###${negative_prompt}`)
 
         const token = user_token || ctx.client.config.default_token || "0000000000"
 
@@ -157,10 +157,9 @@ export default class extends Command {
         const generation_start = await ctx.stable_horde_manager.postAsyncGenerate(generation_data, {token})
         .catch((e) => {
             if(ctx.client.config.advanced?.dev) console.error(e)
-            ctx.error({error: `Unable to start generation: ${e.message}`})
-            return null;
+            return e;
         })
-        if(!generation_start || !generation_start.id) return;
+        if(!generation_start || !generation_start.id) return ctx.error({error: `Unable to start generation: ${generation_start.message}`});
 
 
         if (ctx.client.config.logs?.enabled) {
