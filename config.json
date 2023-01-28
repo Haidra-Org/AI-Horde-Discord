@@ -231,5 +231,22 @@
             "denoise": 60,
             "steps": 50
         }
+    },
+    "party": {
+        "enabled": true,
+        "mention_roles": ["1068910385308127312"],
+        "default": {
+            "recurring": true
+        },
+        "user_restrictions": {
+            "award": {
+                "min": 1,
+                "max": 100000
+            },
+            "duration": {
+                "min": 1,
+                "max": 30
+            }
+        }
     }
 }
