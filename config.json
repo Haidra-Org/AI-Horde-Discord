@@ -221,7 +221,7 @@
         "allow_custom_strength": true,
         "generation_options": {
             "sampler_name": "k_euler_a",
-            "model": "stable_diffusion",
+            "model": "Stable Diffusion 2 Depth",
             "width": 512,
             "height": 512,
             "allow_nsfw": false,
