@@ -214,7 +214,7 @@
     },
     "remix": {
         "enabled": true,
-        "require_login": false,
+        "require_login": true,
         "trusted_workers": true,
         "blacklisted_words": [],
         "convert_a1111_weight_to_horde_weight": true,
