@@ -163,7 +163,7 @@ export default class extends Command {
 
 
         if (ctx.client.config.logs?.enabled) {
-            if(ctx.client.config.logs.log_actions?.non_img2img) {
+            if(ctx.client.config.logs.log_actions?.without_source_image) {
                 if (ctx.client.config.logs.plain) logGeneration("txt");
                 if (ctx.client.config.logs.csv) logGeneration("csv");
             }
@@ -319,8 +319,9 @@ ETA: <t:${Math.floor(Date.now()/1000)+(status?.wait_time ?? 0)}:R>`
                 const images = await ctx.stable_horde_manager.getGenerationStatus(generation_start!.id!)
 
                 const image_map_r = images.generations?.map(async (g, i) => {
-                    const req = await Centra(g.img!, "get").send().then(res => res.body)
-                    const attachment = new AttachmentBuilder(req, {name: `${g.seed ?? `image${i}`}.webp`})
+                    const req = await Centra(g.img!, "get").send();
+                    if(ctx.client.config.advanced?.dev) console.log(req)
+                    const attachment = new AttachmentBuilder(req.body, {name: `${g.seed ?? `image${i}`}.webp`})
                     const embed = new EmbedBuilder({
                         title: `Image ${i+1}`,
                         image: {url: `attachment://${g.seed ?? `image${i}`}.webp`},

@@ -123,8 +123,8 @@ export interface Config {
         plain?: boolean,
         csv?: boolean,
         log_actions?: {
-            non_img2img?: boolean,
-            img2img?: boolean
+            without_source_image?: boolean,
+            with_source_image?: boolean
         }
     },
     interrogate?: {
@@ -170,7 +170,7 @@ export interface Config {
             karras?: boolean,
             share?: boolean
         },
-        img2img?: {
+        source_image?: {
             require_login?: boolean,
             require_stable_horde_account_oauth_connection?: boolean,
             allow_non_webp?: boolean,
@@ -218,7 +218,7 @@ export interface Config {
             allow_amount?: boolean,
             allow_models?: boolean,
             allow_nsfw?: boolean,
-            allow_img2img?: boolean,
+            allow_source_image?: boolean,
             allow_denoise?: boolean,
             allow_karras?: boolean,
             allow_sharing?: boolean,
@@ -253,6 +253,26 @@ export interface Config {
             allow_nsfw?: boolean,
             allow_sharing?: boolean,
             allow_rating?: boolean
+        }
+    },
+    remix?: {
+        enabled?: boolean,
+        require_login?: boolean,
+        trusted_workers?: boolean,
+        blacklisted_words?: string[],
+        convert_a1111_weight_to_horde_weight?: boolean,
+        allow_custom_strength: boolean,
+        generation_options?: {
+            sampler_name?: string,
+            width?: number,
+            height?: number,
+            allow_nsfw?: boolean,
+            censor_nsfw?: boolean,
+            model: string,
+            share_result?: boolean,
+            cfg?: number,
+            denoise?: number,
+            steps?: number
         }
     }
 }
