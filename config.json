@@ -80,8 +80,8 @@
         "plain": true,
         "csv": false,
         "log_actions": {
-            "non_img2img": true,
-            "img2img": true
+            "without_source_image": true,
+            "with_source_image": true
         }
     },
     "interrogate": {
@@ -126,7 +126,7 @@
             "karras": true,
             "share": true
         },
-        "img2img": {
+        "source_image": {
             "require_login": true,
             "require_stable_horde_account_oauth_connection": false,
             "allow_non_webp": true,
@@ -173,7 +173,7 @@
             "allow_tiling": true,
             "allow_amount": true,
             "allow_models": true,
-            "allow_img2img": true,
+            "allow_source_image": true,
             "allow_denoise": true,
             "allow_nsfw": false,
             "allow_karras": true,
@@ -190,6 +190,7 @@
         "blacklisted_words": [],
         "update_generation_status_interval_seconds": 5,
         "convert_a1111_weight_to_horde_weight": true,
+        "allow_custom_strength": true,
         "improve_loading_time": false,
         "styles_source": "https://raw.githubusercontent.com/db0/Stable-Horde-Styles/main/styles.json",
         "default": {
@@ -209,6 +210,26 @@
             "allow_nsfw": false,
             "allow_sharing": true,
             "allow_rating": true
+        }
+    },
+    "remix": {
+        "enabled": true,
+        "require_login": false,
+        "trusted_workers": true,
+        "blacklisted_words": [],
+        "convert_a1111_weight_to_horde_weight": true,
+        "allow_custom_strength": true,
+        "generation_options": {
+            "sampler_name": "k_euler_a",
+            "model": "stable_diffusion",
+            "width": 512,
+            "height": 512,
+            "allow_nsfw": false,
+            "censor_nsfw": true,
+            "share_result": false,
+            "cfg": 7,
+            "denoise": 60,
+            "steps": 50
         }
     }
 }
