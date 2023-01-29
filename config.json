@@ -236,7 +236,7 @@
         "enabled": true,
         "mention_roles": ["1068910385308127312"],
         "default": {
-            "recurring": true
+            "recurring": false
         },
         "user_restrictions": {
             "award": {
