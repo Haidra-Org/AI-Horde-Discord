@@ -124,7 +124,9 @@
             "gfpgan": false,
             "real_esrgan": false,
             "karras": true,
-            "share": true
+            "share": true,
+            "keep_original_ratio": true,
+            "style": "raw"
         },
         "source_image": {
             "require_login": true,
@@ -161,6 +163,8 @@
                 "min": 0,
                 "max": 100
             },
+            "allow_negative_prompt": true,
+            "allow_style": true,
             "allow_sampler": true,
             "allow_cfg": true,
             "allow_seed": true,
@@ -197,11 +201,28 @@
             "tiling": false,
             "amount": 1,
             "share": true,
-            "style": "raw"
+            "style": "raw",
+            "keep_original_ratio": true,
+            "denoise": 50
+        },
+        "source_image": {
+            "require_login": true,
+            "require_stable_horde_account_oauth_connection": false,
+            "allow_non_webp": true,
+            "require_nsfw_channel": false,
+            "whitelist": {
+                "only_allow_whitelist": false,
+                "user_ids": [],
+                "bypass_checks": true
+            }
         },
         "user_restrictions": {
             "amount": {
                 "max": 4
+            },
+            "denoise": {
+                "min": 0,
+                "max": 100
             },
             "allow_negative_prompt": true,
             "allow_style": true,
@@ -209,7 +230,9 @@
             "allow_amount": true,
             "allow_nsfw": false,
             "allow_sharing": true,
-            "allow_rating": true
+            "allow_rating": true,
+            "allow_source_image": true,
+            "allow_denoise": true
         }
     },
     "remix": {
