@@ -251,7 +251,7 @@
             "censor_nsfw": true,
             "share_result": false,
             "cfg": 10,
-            "denoise": 75,
+            "denoise": 90,
             "steps": 20
         }
     },
