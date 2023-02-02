@@ -243,16 +243,16 @@
         "convert_a1111_weight_to_horde_weight": true,
         "allow_custom_strength": true,
         "generation_options": {
-            "sampler_name": "k_euler_a",
-            "model": "Stable Diffusion 2 Depth",
+            "sampler_name": "k_euler",
+            "model": "pix2pix",
             "width": 512,
             "height": 512,
             "allow_nsfw": false,
             "censor_nsfw": true,
             "share_result": false,
-            "cfg": 7,
-            "denoise": 60,
-            "steps": 50
+            "cfg": 10,
+            "denoise": 75,
+            "steps": 20
         }
     },
     "party": {
