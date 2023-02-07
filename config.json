@@ -250,9 +250,9 @@
             "allow_nsfw": false,
             "censor_nsfw": true,
             "share_result": false,
-            "cfg": 10,
-            "denoise": 90,
-            "steps": 20
+            "cfg": 7.5,
+            "denoise": 75,
+            "steps": 50
         }
     },
     "party": {
