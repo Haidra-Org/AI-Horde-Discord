@@ -200,6 +200,11 @@
         "default": {
             "tiling": false,
             "amount": 1,
+            "steps": 30,
+            "resolution": {
+                "width": 512,
+                "height": 512
+            },
             "share": true,
             "style": "raw",
             "keep_original_ratio": true,
