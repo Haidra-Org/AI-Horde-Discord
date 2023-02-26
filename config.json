@@ -18,7 +18,8 @@
     "filter_actions": {
         "mode": "whitelist",
         "guilds": [
-            "781145214752129095"
+            "781145214752129095",
+            "849937185893384223"
         ],
         "apply_filter_to": {
             "react_to_transfer": true,
