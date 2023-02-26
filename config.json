@@ -33,7 +33,7 @@
                 "id": "1030589098093707365",
                 "amount": 50000,
                 "title": "Stupendous!",
-                "message": "OMG! The higher reward!"
+                "message": "OMG! The highest reward!"
             },
             {
                 "id": "1030589097133219850",
@@ -69,6 +69,48 @@
                 "id": "1030586187234160801",
                 "amount": 100,
                 "title": "Delightful!",
+                "message": "That's what we like to see."
+            },
+            {
+                "id": "1030964401886470164",
+                "amount": 50000,
+                "title": "Stupendous!",
+                "message": "OMG! The highest reward!"
+            },
+            {
+                "id": "1030964150899310672",
+                "amount": 10000,
+                "title": "Brilliant!",
+                "message": "You make the world around you a bit brighter."
+            },
+            {
+                "id": "1030964265064079501",
+                "amount": 5000,
+                "title": "Sensational!",
+                "message": "That comment hit just right."
+            },
+            {
+                "id": "1030964205949562930",
+                "amount": 1000,
+                "title": "Marvelous!",
+                "message": "A well deserved reward"
+            },
+            {
+                "id": "1030964126329086114",
+                "amount": 500,
+                "title": "Toight!",
+                "message": "You're a diamond in the rough!"
+            },
+            {
+                "id": "1030964064563773480",
+                "amount": 100,
+                "title": "Noice!",
+                "message": "Keep doing what you're doing, friend!"
+            },
+            {
+                "id": "1030963969688621147",
+                "amount": 10,
+                "title": "Neat!",
                 "message": "That's what we like to see."
             }
         ],
