@@ -2,7 +2,8 @@
     "use_database": true,
     "default_token": "0000000000",
     "apply_roles_to_worker_owners": [
-        "1024253788187533372"
+        "1024253788187533372",
+        "1079377992767258695"
     ],
     "apply_roles_to_trusted_users": [
         "1029338683763064842"
