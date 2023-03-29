@@ -251,6 +251,7 @@
             },
             "share": true,
             "style": "raw",
+            "sampler": "k_euler_a",
             "keep_original_ratio": true,
             "denoise": 50
         },
