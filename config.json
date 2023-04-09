@@ -114,6 +114,42 @@
                 "amount": 10,
                 "title": "Neat!",
                 "message": "That's what we like to see."
+            },
+            {
+                "id": "1094540945036419143",
+                "amount": 50000,
+                "title": "Paypyg'd",
+                "message": "lol giga simped on"
+            },
+            {
+                "id": "1094540942092009472",
+                "amount": 10000,
+                "title": "Rent free",
+                "message": "you got yourself a huge fan"
+            },
+            {
+                "id": "1094540939927769219",
+                "amount": 5000,
+                "title":  " 5 x Thousand",
+                "message": "If only kudos could be used to purchase GPUs..."
+            },
+            {
+                "id": "1094540936526168158",
+                "amount": 1000 ,
+                "title": "Thousand!",
+                "message": "That's some kudos, wow"
+            },
+            {
+                "id": "1094540935049785453",
+                "amount": 500,
+                "title": "5 bucks",
+                "message": "shame its only in kudos though"
+            },
+            {
+                "id": "1094540931627229295",
+                "amount": 100,
+                "title": "A Dollar",
+                "message": "No one gets paid here, except in kudos"
             }
         ],
         "allow_delayed_claim": true
