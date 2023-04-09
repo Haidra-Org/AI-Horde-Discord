@@ -20,7 +20,8 @@
         "mode": "whitelist",
         "guilds": [
             "781145214752129095",
-            "849937185893384223"
+            "849937185893384223",
+            "1066323170866495609"
         ],
         "apply_filter_to": {
             "react_to_transfer": true,
@@ -140,13 +141,13 @@
                 "message": "That's some kudos, wow"
             },
             {
-                "id": "1094561784121282560",
+                "id": "1094540935049785453",
                 "amount": 500,
                 "title": "5 bucks",
                 "message": "shame its only in kudos though"
             },
             {
-                "id": "1094561784121282560",
+                "id": "1094540931627229295",
                 "amount": 100,
                 "title": "A Dollar",
                 "message": "No one gets paid here, except in kudos"
