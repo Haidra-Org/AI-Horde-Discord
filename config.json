@@ -340,7 +340,7 @@
             "cfg": 7.5,
             "denoise": 70,
             "steps": 15,
-            "control_type": "depth"
+            "control_type": "hed"
         }
     },
     "party": {
