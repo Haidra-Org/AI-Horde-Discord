@@ -338,7 +338,7 @@
             "censor_nsfw": true,
             "share_result": false,
             "cfg": 7.5,
-            "denoise": 75,
+            "denoise": 60,
             "steps": 20,
             "control_type": "canny"
         }
