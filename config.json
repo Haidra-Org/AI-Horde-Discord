@@ -340,7 +340,7 @@
             "cfg": 7.5,
             "denoise": 70,
             "steps": 15,
-            "control_type": "hed"
+            "control_type": "canny"
         }
     },
     "party": {
