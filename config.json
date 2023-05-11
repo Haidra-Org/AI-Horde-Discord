@@ -281,7 +281,7 @@
         "default": {
             "tiling": false,
             "amount": 1,
-            "steps": 30,
+            "steps": 25,
             "resolution": {
                 "width": 512,
                 "height": 512
@@ -293,7 +293,7 @@
             "denoise": 50
         },
         "source_image": {
-            "require_login": true,
+            "require_login": false,
             "require_ai_horde_account_oauth_connection": false,
             "allow_non_webp": true,
             "require_nsfw_channel": false,
@@ -339,7 +339,8 @@
             "share_result": false,
             "cfg": 7.5,
             "denoise": 75,
-            "steps": 50
+            "steps": 20,
+            "control_type": "canny"
         }
     },
     "party": {
