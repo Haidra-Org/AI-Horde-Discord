@@ -331,7 +331,7 @@
         "allow_custom_strength": true,
         "generation_options": {
             "sampler_name": "k_euler",
-            "model": "pix2pix",
+            "model": "Deliberate",
             "width": 512,
             "height": 512,
             "allow_nsfw": false,
