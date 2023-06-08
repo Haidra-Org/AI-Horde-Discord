@@ -1,4 +1,4 @@
-import AIHorde from "@zeldafan0225/ai_horde";
+import {ModelGenerationInputStableSamplers, AIHorde} from "@zeldafan0225/ai_horde";
 import {
     AnySelectMenuInteraction,
     AutocompleteInteraction,
@@ -89,6 +89,90 @@ export interface Party {
     users: string[]
 }
 
+export interface LORAFetchResponse {
+    items: LORAData[],
+    metadata: {
+        totalItems: number,
+        currentPage: number,
+        pageSize: number,
+        totalPages: number
+    }
+}
+
+export interface LORAData {
+    id: number,
+    name: string,
+    description: string,
+    type: string,
+    poi: boolean,
+    nsfw: boolean,
+    allowNoCredit: boolean,
+    allowCommercialUse: string,
+    allowDerivatives: boolean,
+    allowDifferentLicense: boolean,
+    stats: {
+        downloadedCount: number,
+        favoriteCount: number,
+        commentCount: number,
+        ratingCount: number,
+        rating: number
+    },
+    creator: {
+        username: string,
+        image: string,
+    },
+    tags: string[],
+    modelVersions: {
+        id: number,
+        modelId: number,
+        name: string,
+        createdAt: string,
+        updatedAt: string,
+        trainedWords: string[],
+        baseModel: string,
+        earlyAccessTimeFrame: number,
+        description: string,
+        stats: {
+            downloadCount: number,
+            ratingCount: number,
+            rating: number
+        },
+        files: {
+            name: string,
+            id: number,
+            sikeKB: number,
+            type: string,
+            metadata: {
+                fp: null,
+                size: null,
+                format: string
+            },
+            pickleScanResult: string,
+            pickleScanMessage: string,
+            virusScanResult: string,
+            scannedAt: string,
+            hashes: {
+                AutoV1: string,
+                AutoV2: string,
+                SHA256: string,
+                CRC32: string,
+                BLAKE3: string
+            },
+            downloadURL: string,
+            primary: true
+        }[],
+        images: {
+            url: string,
+            nsfw: string,
+            width: number,
+            height: number,
+            hash: string,
+            meta: Record<string, any>
+        }[],
+        downloadUrl: string
+    }[]
+}
+
 export interface Config {
     use_database?: boolean,
     default_token?: string,
@@ -97,10 +181,6 @@ export interface Config {
     advanced?: {
         dev?: boolean,
         encrypt_token?: boolean
-        pre_check_prompts_for_suspicion?: {
-            enabled: boolean,
-            timeout_duration?: number
-        }
     },
     filter_actions?: {
         mode?: "whitelist" | "blacklist",
@@ -151,6 +231,7 @@ export interface Config {
         require_login?: boolean,
         trusted_workers?: boolean,
         censor_nsfw?: boolean,
+        replacement_filter?: boolean,
         workers?: string[],
         blacklisted_words?: string[],
         blacklisted_models?: string[],
@@ -166,7 +247,7 @@ export interface Config {
             },
             cfg?: number,
             amount?: number,
-            sampler?: typeof AIHorde.ModelGenerationInputStableSamplers,
+            sampler?: typeof ModelGenerationInputStableSamplers,
             model?: string,
             denoise?: number,
             gfpgan?: boolean,
@@ -230,7 +311,8 @@ export interface Config {
             allow_denoise?: boolean,
             allow_karras?: boolean,
             allow_sharing?: boolean,
-            allow_rating?: boolean
+            allow_rating?: boolean,
+            allow_lora?: boolean
         }
     },
     generate?: {
@@ -238,6 +320,7 @@ export interface Config {
         require_login?: boolean,
         trusted_workers?: boolean,
         censor_nsfw?: boolean,
+        replacement_filter?: boolean,
         blacklisted_words?: string[],
         blacklisted_styles?: string[],
         update_generation_status_interval_seconds?: number,

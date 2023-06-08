@@ -9,11 +9,7 @@
     ],
     "advanced": {
         "dev": false,
-        "encrypt_token": true,
-        "pre_check_prompts_for_suspicion": {
-            "enabled": false,
-            "timeout_duration": 3600000
-        }
+        "encrypt_token": true
     },
     "filter_actions": {
         "mode": "whitelist",
@@ -68,6 +64,7 @@
         "require_login": true,
         "trusted_workers": true,
         "censor_nsfw": true,
+        "replacement_filter": true,
         "blacklisted_models": [],
         "blacklisted_words": [],
         "update_generation_status_interval_seconds": 5,
@@ -146,7 +143,8 @@
             "allow_nsfw": true,
             "allow_karras": true,
             "allow_sharing": true,
-            "allow_rating": true
+            "allow_rating": true,
+            "allow_lora": true
         }
     },
     "generate": {
@@ -154,12 +152,13 @@
         "require_login": true,
         "trusted_workers": true,
         "censor_nsfw": true,
+        "replacement_filter": true,
         "blacklisted_styles": [],
         "blacklisted_words": [],
         "update_generation_status_interval_seconds": 5,
         "convert_a1111_weight_to_horde_weight": true,
         "improve_loading_time": false,
-        "styles_source": "https://raw.githubusercontent.com/db0/Stable-Horde-Styles/main/styles.json",
+        "styles_source": "https://raw.githubusercontent.com/Haidra-Org/AI-Horde-Styles/main/styles.json",
         "default": {
             "tiling": false,
             "amount": 1,

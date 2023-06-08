@@ -4,7 +4,7 @@ import { CommandContext } from "../classes/commandContext";
 import { AutocompleteContext } from "../classes/autocompleteContext";
 import { readFileSync, appendFileSync } from "fs";
 import { Config } from "../types";
-import AIHorde from "@zeldafan0225/ai_horde";
+import {ModelGenerationInputStableSamplers, ImageGenerationInput} from "@zeldafan0225/ai_horde";
 import Centra from "centra";
 const {buffer2webpbuffer} = require("webp-converter")
 
@@ -200,28 +200,21 @@ export default class extends Command {
             }
         }
 
-        if(ctx.client.config.advanced?.pre_check_prompts_for_suspicion?.enabled) {
-            if(ctx.client.timeout_users.has(ctx.interaction.user.id)) return ctx.error({error: "Your previous prompt has been marked as suspicious.\nYou have been timed out, try again later."})
-            const filter_result = await ctx.ai_horde_manager.postFilters({
-                prompt
-            }, {token: process.env["OPERATOR_API_KEY"]}).catch(console.error)
-            if(filter_result && Number(filter_result.suspicion) >= 2) {
-                ctx.client.timeout_users.set(ctx.interaction.user.id, ctx.interaction.user.id, (ctx.client.config.advanced.pre_check_prompts_for_suspicion.timeout_duration ?? 1000 * 60 * 60))
-            }
-            if(ctx.client.timeout_users.has(ctx.interaction.user.id)) return ctx.error({error: "Your prompt has been marked as suspicious.\nTherefore you have been timed out!"})
-        }
 
-
-        const generation_data: AIHorde.GenerationInput = {
+        const generation_data: ImageGenerationInput = {
             prompt,
             params: {
-                sampler_name: style.sampler_name as typeof AIHorde.ModelGenerationInputStableSamplers[keyof typeof AIHorde.ModelGenerationInputStableSamplers],
+                sampler_name: style.sampler_name as typeof ModelGenerationInputStableSamplers[keyof typeof ModelGenerationInputStableSamplers],
                 height: height,
                 width: width,
                 n: amount,
                 tiling,
-                denoising_strength: denoise
+                denoising_strength: denoise,
+                cfg_scale: style.cfg_scale,
+                loras: style.loras,
+                steps: style.steps
             },
+            replacement_filter: ctx.client.config.generate.replacement_filter,
             nsfw: ctx.client.config.generate?.user_restrictions?.allow_nsfw,
             censor_nsfw: ctx.client.config.generate?.censor_nsfw,
             trusted_workers: ctx.client.config.generate?.trusted_workers,
