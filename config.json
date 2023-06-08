@@ -10,7 +10,8 @@
     ],
     "advanced": {
         "dev": false,
-        "encrypt_token": true
+        "encrypt_token": true,
+        "result_structure_v2_enabled": true
     },
     "filter_actions": {
         "mode": "whitelist",
