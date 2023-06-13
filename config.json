@@ -261,7 +261,7 @@
             "allow_nsfw": false,
             "allow_karras": true,
             "allow_sharing": true,
-            "allow_rating": true,
+            "allow_rating": false,
             "allow_lora": true
         }
     },
@@ -317,7 +317,7 @@
             "allow_amount": true,
             "allow_nsfw": false,
             "allow_sharing": true,
-            "allow_rating": true,
+            "allow_rating": false,
             "allow_source_image": true,
             "allow_denoise": true
         }
