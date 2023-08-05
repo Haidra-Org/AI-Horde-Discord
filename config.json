@@ -165,6 +165,7 @@
     "interrogate": {
         "enabled": true,
         "update_interrogation_status_interval_seconds": 5,
+        "enable_image_description_context": true,
         "enable_user_captioning": true,
         "default": {
             "nsfw": false,
@@ -347,7 +348,8 @@
         "enabled": true,
         "mention_roles": ["1068910385308127312"],
         "default": {
-            "recurring": false
+            "recurring": false,
+            "pay_for_generations": false
         },
         "user_restrictions": {
             "award": {
@@ -357,6 +359,10 @@
             "duration": {
                 "min": 1,
                 "max": 30
+            },
+            "wordlist": {
+                "min": 0,
+                "max": 100
             }
         }
     }
