@@ -16,6 +16,7 @@ Here you can see an explanation of what which option does
     "filter_actions": {
         "mode": The mode on how the guilds list should act ('whitelist' or 'blacklist'),
         "guilds": The list of guilds to apply the filters to (ARRAY OF GUILD IDS),
+        "guilds": The list of guilds to apply the filters to (ARRAY OF GUILD IDS),
         "apply_filter_to": {
             "react_to_transfer": Whether to apply the filter to this action (BOOLEAN),
             "apply_roles_to_worker_owners": Whether to apply the filter to this action (BOOLEAN),
