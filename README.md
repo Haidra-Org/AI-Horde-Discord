@@ -2,10 +2,6 @@
 
 A basic Discord bot to generate images using the AI Horde API.
 
-**DISCLAIMER:** THIS REPOSITORY IS IN NO WAY ASSOCIATED TO THE CREATORS OF AI HORDE  
-OFFERING THIS CODE IN FORM OF A PUBLIC DISCORD BOT WHICH CAN BE INVITED BY EVERYBODY IS NOT SUPPORTED.  
-THE SCALE OF A BOT USING THIS CODE IS 1 SERVER, EVERYTHING ABOVE IS NOT SUPPORTED.  
-
 ## Features
 
 View [the changelog](https://github.com/ZeldaFan0225/AI_Horde_Discord/blob/main/changelog.md) to see what has been added
