@@ -322,7 +322,7 @@ export default class extends Command {
         width = ctx.interaction.options.getInteger("width") ?? width
 
         if(ctx.client.config.advanced_generate.convert_a1111_weight_to_horde_weight) {
-            prompt = prompt.replace(/(\(+|\[+)|(?<!\:\d(\.\d+)?)(\)+|\]+)/g, (w) => {
+            prompt = prompt.replace(/(\(+|\[+)|(?<!:\d(\.\d+)?)(\)+|]+)/g, (w) => {
                 if(w.startsWith("(") || w.startsWith("[")) return "("
                 if(w.startsWith(":")) return w;
                 const weight = 1 + (0.1 * (w.startsWith(")") ? 1 : -1) * w.length)
@@ -330,7 +330,7 @@ export default class extends Command {
             })
         }
 
-        const tis = ti_raw?.split(",").map(ti => ti.trim()).map(ti => ({name: ti, inject_ti: prompt.toLowerCase().indexOf("embedding:") === -1 ? "prompt" as const : undefined}))
+        const tis = ti_raw?.split(",").map(ti => ti.trim()).filter(v => v).map(ti => ({name: ti, inject_ti: prompt.toLowerCase().indexOf("embedding:") === -1 ? "prompt" as const : undefined}))
         
         prompt = style.prompt.slice().replace("{p}", prompt)
         prompt = prompt.replace("{np}", !negative_prompt || prompt.includes("###") ? negative_prompt : `###${negative_prompt}`)
@@ -409,9 +409,9 @@ export default class extends Command {
         const generation_start = await ctx.ai_horde_manager.postAsyncImageGenerate(generation_data, {token})
         .catch((e) => {
             if(ctx.client.config.advanced?.dev) console.error(e)
-            return e.rawError.message;
+            return e.rawError as any;
         })
-        if(!generation_start || !generation_start.id) return ctx.error({error: `Unable to start generation: ${generation_start}`});
+        if(!generation_start || !generation_start.id) return ctx.error({error: `Unable to start generation: ${generation_start.message}${Object.entries(generation_start.errors).map(([k, v]) => `\n${k}: ${v}`).join("")}`});
 
 
         if (ctx.client.config.logs?.enabled) {
@@ -596,7 +596,7 @@ ETA: <t:${Math.floor(Date.now()/1000)+(status?.wait_time ?? 0)}:R>`
                         })
                     ]
 
-                    if(ctx.client.config.generate?.user_restrictions?.allow_rating && (generation_data.shared ?? true) && files.length === 1) {
+                    if(ctx.client.config.advanced_generate?.user_restrictions?.allow_rating && (generation_data.shared ?? true) && files.length === 1) {
                         components = [...generateButtons(generation_start!.id!), ...components]
                     }
                     await message.edit({content: null, components, embeds, files});
@@ -675,7 +675,7 @@ ETA: <t:${Math.floor(Date.now()/1000)+(status?.wait_time ?? 0)}:R>`
                     )
                 }
 
-                // the api isn't particularly fast so sometimes it might send the result too late
+                // the api isn't particularly fast, so sometimes it might send the result too late
                 return await context.interaction.respond(ret.slice(0,25)).catch(() => null)
             }
         }

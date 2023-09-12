@@ -170,11 +170,11 @@ export default class extends Command {
         prompt = style.prompt.slice().replace("{p}", prompt)
         prompt = prompt.replace("{np}", !negative_prompt || prompt.includes("###") ? negative_prompt : `###${negative_prompt}`)
         
-        if(party && party.wordlist.length) {
+        if(party && party.wordlist?.length) {
             if(ctx.client.config.advanced?.dev) {
                 console.log(party.wordlist)
             }
-            if(!party.wordlist.every(w => prompt.toLowerCase().includes(w))) return ctx.error({error: "Your prompt does not include all required words"})
+            if(!party.wordlist?.every(w => prompt.toLowerCase().includes(w))) return ctx.error({error: "Your prompt does not include all required words"})
         }
 
         if(keep_ratio && img?.width && img?.height) {
@@ -245,9 +245,9 @@ export default class extends Command {
         const generation_start = await ctx.ai_horde_manager.postAsyncImageGenerate(generation_data, {token})
         .catch((e) => {
             if(ctx.client.config.advanced?.dev) console.error(e)
-            return e.rawError.message;
+            return e.rawError as any;
         })
-        if(!generation_start || !generation_start.id) return ctx.error({error: `Unable to start generation: ${generation_start}`});
+        if(!generation_start || !generation_start.id) return ctx.error({error: `Unable to start generation: ${generation_start.message}${Object.entries(generation_start.errors).map(([k, v]) => `\n${k}: ${v}`).join("")}`});
 
 
         if (ctx.client.config.logs?.enabled) {
