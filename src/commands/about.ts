@@ -19,6 +19,9 @@ export default class extends Command {
     override async run(ctx: CommandContext): Promise<any> {
         const counts = await ctx.database?.query("SELECT (SELECT COUNT(*) FROM user_tokens) as user_tokens, (SELECT COUNT(*) FROM parties) as parties, (SELECT COUNT(*) FROM pending_kudos) as pending_kudos").then(res => res.rows[0]).catch(console.error)
 
+        await ctx.client.loadHordeStyles()
+        await ctx.client.loadHordeStyleCategories()
+
         const embed = new EmbedBuilder({
             color: Colors.Blue,
             title: "Official AI Horde Discord Bot",
