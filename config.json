@@ -287,13 +287,13 @@
         "default": {
             "tiling": false,
             "amount": 1,
-            "steps": 25,
+            "steps": 40,
             "resolution": {
-                "width": 512,
-                "height": 512
+                "width": 1024,
+                "height": 1024
             },
             "share": true,
-            "style": "raw",
+            "style": "sdxl",
             "sampler": "k_euler_a",
             "keep_original_ratio": true,
             "denoise": 50
