@@ -142,7 +142,7 @@ export interface LORAData {
         files: {
             name: string,
             id: number,
-            sikeKB: number,
+            sizeKB: number,
             type: string,
             metadata: {
                 fp: null,
@@ -185,7 +185,8 @@ export interface HordeStyleData {
     cfg_scale?: number,
     hires_fix?: boolean,
     loras?: {
-        name: string
+        name: string,
+        inject_trigger?: string
     }[],
     tis?: {
         name: string,
@@ -199,6 +200,7 @@ export interface Config {
     default_token?: string,
     apply_roles_to_worker_owners?: string[],
     apply_roles_to_trusted_users?: string[],
+    apply_roles_to_logged_in_users?: string[],
     advanced?: {
         dev?: boolean,
         encrypt_token?: boolean,
@@ -210,7 +212,8 @@ export interface Config {
         apply_filter_to?: {
             react_to_transfer?: boolean,
             apply_roles_to_worker_owners?: boolean,
-            apply_roles_to_trusted_users?: boolean
+            apply_roles_to_trusted_users?: boolean,
+            apply_roles_to_logged_in_users?: boolean
         }
     },
     react_to_transfer?: {
@@ -451,6 +454,7 @@ export interface Config {
         }
     },
     data_sources?: {
+        curated_loras_source?: string
         styles_source?: string
         style_categories_source?: string,
     }

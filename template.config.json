@@ -7,10 +7,13 @@
     "apply_roles_to_trusted_users": [
 
     ],
+    "apply_roles_to_logged_in_users": [
+
+    ],
     "advanced": {
         "dev": false,
         "encrypt_token": true,
-        "result_structure_v2_enabled": false
+        "result_structure_v2_enabled": true
     },
     "filter_actions": {
         "mode": "whitelist",
@@ -20,7 +23,8 @@
         "apply_filter_to": {
             "react_to_transfer": true,
             "apply_roles_to_worker_owners": true,
-            "apply_roles_to_trusted_users": true
+            "apply_roles_to_trusted_users": true,
+            "apply_roles_to_logged_in_users": true
         }
     },
     "react_to_transfer": {
@@ -264,6 +268,7 @@
         }
     },
     "data_sources": {
+        "curated_loras_source": "https://raw.githubusercontent.com/Haidra-Org/AI-Horde-image-model-reference/main/lora.json",
         "styles_source": "https://raw.githubusercontent.com/Haidra-Org/AI-Horde-Styles/main/styles.json",
         "style_categories_source": "https://raw.githubusercontent.com/Haidra-Org/AI-Horde-Styles/main/categories.json"
     }
