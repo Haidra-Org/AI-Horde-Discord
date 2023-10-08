@@ -8,6 +8,9 @@
     "apply_roles_to_trusted_users": [
         "1029338683763064842"
     ],
+    "apply_roles_to_logged_in_users": [
+        "1160574746308653086"
+    ],
     "advanced": {
         "dev": false,
         "encrypt_token": true,
@@ -23,7 +26,8 @@
         "apply_filter_to": {
             "react_to_transfer": true,
             "apply_roles_to_worker_owners": true,
-            "apply_roles_to_trusted_users": true
+            "apply_roles_to_trusted_users": true,
+            "apply_roles_to_logged_in_users": true
         }
     },
     "react_to_transfer": {
@@ -388,6 +392,6 @@
     },
     "data_sources": {
         "styles_source": "https://raw.githubusercontent.com/Haidra-Org/AI-Horde-Styles/main/styles.json",
-        "style_categories_source": "https://raw.githubusercontent.com/db0/Stable-Horde-Styles/main/categories.json"
+        "style_categories_source": "https://raw.githubusercontent.com/Haidra-Org/AI-Horde-Styles/main/categories.json"
     }
 }
