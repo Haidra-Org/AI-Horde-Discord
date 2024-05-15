@@ -13,7 +13,7 @@
     ],
     "advanced": {
         "dev": false,
-        "encrypt_token": true,
+        "encrypt_token": false,
         "result_structure_v2_enabled": true
     },
     "filter_actions": {
