@@ -286,7 +286,8 @@
             "allow_rating": false,
             "allow_lora": true,
             "allow_hires_fix": true,
-            "allow_tis": true
+            "allow_tis": true,
+            "allow_qr_codes": true
         }
     },
     "generate": {
