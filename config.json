@@ -245,11 +245,11 @@
             "allow_clip_skip": true,
             "width": {
                 "min": 128,
-                "max": 1024
+                "max": 1280
             },
             "height": {
                 "min": 128,
-                "max": 1024
+                "max": 1280
             },
             "amount": {
                 "max": 4
