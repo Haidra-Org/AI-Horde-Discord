@@ -217,6 +217,7 @@
             },
             "amount": 1,
             "cfg": 7.5,
+            "clip_skip": 1,
             "sampler": "k_euler_a",
             "model": "stable_diffusion",
             "denoise": 50,
@@ -241,6 +242,7 @@
             }
         },
         "user_restrictions": {
+            "allow_clip_skip": true,
             "width": {
                 "min": 128,
                 "max": 1024
@@ -312,6 +314,7 @@
                 "height": 1024
             },
             "share": true,
+            "clip_skip": 1,
             "style": "albedo",
             "sampler": "k_euler_a",
             "keep_original_ratio": true,
